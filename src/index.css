@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* [Tag.tsx] component styles */
+.tag-no-selected {
+    background-color: #dfe6f0;
+    color: #3757e2;
+}
+
+.tag-selected {
+    background-color: #3757e2;
+    color: #dfe6f0;
+}

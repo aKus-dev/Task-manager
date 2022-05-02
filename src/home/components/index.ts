@@ -1,0 +1,13 @@
+export { Square } from './Square';
+export { TaskIcon } from './TaskIcon';
+export { AddNewCategory } from './AddNewCategory';
+export { Settings } from './Settings';
+export { Navbar } from './Navbar';
+export { NoData } from './NoData';
+export { BackButton } from './BackButton';
+export { TagsContainer } from './TagsContainer';
+export { Tag } from './Tag';
+export { FormCategory } from './FormCategory';
+export { FormError } from './FormError';
+export { HomeInfo } from './HomeInfo';
+export { CategoryCard } from './CategoryCard';
