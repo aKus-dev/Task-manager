@@ -1,9 +1,10 @@
 import { CategoryCard, FilterCategory } from './';
 import { useCategories } from '../../global';
+import { Link } from 'react-router-dom';
 
 export const HomeInfo = () => {
 
-    const { categories, filter, isNotFound } = useCategories();
+    const { filter, isNotFound } = useCategories();
 
     return (
         <div className="text-center flex flex-col gap-8 w-full py-6">
@@ -20,7 +21,7 @@ export const HomeInfo = () => {
                         ?
                         (
                             filter.map(({ id, title, desc }) => (
-                                <div key={id} className="mx-auto cursor-pointer w-[100%] p-4 max-w-[450px] shadow-lg rounded-[10px] border border-[#3757e2] flex flex-col justify-center sm:justify-start items-center gap-4 sm:flex-row md:duration-300 md:hover:shadow-[5px_5px_20px_#6c83e6] md:hover:scale-105">
+                                <Link to={`/category/${id}`} key={id} className="mx-auto cursor-pointer w-[100%] p-4 max-w-[450px] shadow-lg rounded-[10px] border border-[#3757e2] flex flex-col justify-center sm:justify-start items-center gap-4 sm:flex-row md:duration-300 md:hover:shadow-[5px_5px_20px_#6c83e6] md:hover:scale-105">
                                     <CategoryCard.icon>
                                         <i className="fa-solid fa-sheet-plastic text-[25px] text-white"></i>
                                     </CategoryCard.icon>
@@ -29,7 +30,7 @@ export const HomeInfo = () => {
                                         <CategoryCard.title>{title}</CategoryCard.title>
                                         <CategoryCard.desc>{desc}</CategoryCard.desc>
                                     </div>
-                                </div>
+                                </Link>
                             ))
                         )
                         :

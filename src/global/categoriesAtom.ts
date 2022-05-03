@@ -8,12 +8,12 @@ export const filterCategoriesAtom = atom<Categories[]>([])
 export const notFoundAtom = atom(false);
 
 export const useCategories = () => {
-
-    const [filterText, setFilterText] = useState('');
-    const [filter, setFilter] = useAtom(filterCategoriesAtom);
-    const [isNotFound, setIsNotFound] = useAtom(notFoundAtom);
+    
     const [categories, setCategories] = useAtom(categoriesAtom)
-
+    const [isNotFound, setIsNotFound] = useAtom(notFoundAtom);
+    const [filter, setFilter] = useAtom(filterCategoriesAtom);
+    const [filterText, setFilterText] = useState('');
+    
     const addCategory = (category: Categories) => {
         setCategories([...categories, category])
     }
@@ -22,10 +22,15 @@ export const useCategories = () => {
         setFilterText(e.target.value)
     }
 
+    const getCategoryByid = (id:string) => {
+        return categories.find(c => c.id === id);
+    }
+
     useEffect(
         () => {
 
             if (!filterText) {
+                setIsNotFound(false);
                 setFilter(categories)
             } else {
                 const result = categories.filter(({ title }) => {
@@ -54,6 +59,7 @@ export const useCategories = () => {
         filterText,
         handleFilterText,
         filter,
-        isNotFound
+        isNotFound,
+        getCategoryByid
     }
 }

@@ -1,5 +1,6 @@
-import { Navbar, HomeInfo, NoData } from '../components';
+import { HomeInfo, NoData } from '../components';
 import { useCategories } from '../../global';
+import { Navbar } from '../../global/components';
 
 export const HomeScreen = () => {
 

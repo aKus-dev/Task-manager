@@ -1,5 +1,6 @@
 export const routes = {
     HomeScreen: '/',
-    CreateCategoryScreen: '/category',
-    TagsScreen: '/tags'
+    CreateCategoryScreen: '/create-category',
+    CategoryScreen: '/category/:id',
+    TagsScreen: '/tags',
 }

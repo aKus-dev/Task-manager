@@ -1,4 +1,5 @@
-import { BackButton, FormCategory } from '../components';
+import { FormCategory } from '../components';
+import { BackButton } from '../../global/components';
 
 export const CreateCategoryScreen = () => {
     return (
