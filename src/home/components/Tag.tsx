@@ -3,7 +3,7 @@ import { useTag } from '../../global';
 
 interface TagProps {
     children: string;
-    isSuccess: boolean;
+    isSuccess?: boolean;
 }
 
 export const Tag = ({ children, isSuccess }: TagProps) => {

@@ -5,16 +5,15 @@ interface CategoryCardProps {
 
 export const CategoryCard = ({ children }: CategoryCardProps) => {
     return (
-        <article className="cursor-pointer w-[95%] p-6 max-w-[450px] mx-auto shadow-lg rounded-[10px] border border-[#3757e2] flex items-center gap-4 md:duration-300 md:hover:shadow-[5px_5px_20px_#6c83e6] md:hover:scale-105">
-        
+        <div className="mx-auto cursor-pointer w-[95%] p-6 max-w-[450px] shadow-lg rounded-[10px] border border-[#3757e2] flex items-center gap-4 md:duration-300 md:hover:shadow-[5px_5px_20px_#6c83e6] md:hover:scale-105">
             {children}
-        </article>
+        </div>
     )
 }
 
 CategoryCard.title = ({ children }: CategoryCardProps) => {
     return (
-        <h2 className="font-bold text-[18px] text-[#131419]">{children}</h2>
+        <h2 className="font-bold text-[18px] text-[#131419] w-full text-center sm:text-left">{children}</h2>
     )
 }
 
@@ -28,7 +27,7 @@ CategoryCard.icon = ({ children }: CategoryCardProps) => {
 
 CategoryCard.desc = ({ children }: CategoryCardProps) => {
     return (
-        <div className="w-full truncate text-[#686666]">
+        <div className="w-full truncate text-[#686666] text-center md:text-left">
             <span>{children}</span>
         </div>
     )

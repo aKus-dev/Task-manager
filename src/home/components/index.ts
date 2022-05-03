@@ -11,3 +11,4 @@ export { FormCategory } from './FormCategory';
 export { FormError } from './FormError';
 export { HomeInfo } from './HomeInfo';
 export { CategoryCard } from './CategoryCard';
+export { FilterCategory } from './FilterCategory';
