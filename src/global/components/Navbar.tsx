@@ -1,8 +1,8 @@
 import { Square, TaskIcon, AddNewCategory, Settings } from '../../home/components';
 import { useCategories } from '..';
 import { useNavbar } from '../../home/hooks';
-import { Link } from 'react-router-dom';
 import { routes } from '../../routes';
+import { Link, NavLink } from 'react-router-dom';
 
 
 export const Navbar = () => {
@@ -22,15 +22,15 @@ export const Navbar = () => {
                     categories.length !== 0 && (
                         categories.map((category, index) => {
 
-                            const { title } = category;
+                            const { id, title } = category;
 
                             //* Controla que no imprima máx TaskIcons de los permitidos
                             if (index >= maxAmount) return;
 
                             return (
-                                <div key={index}>
+                                <NavLink rel=""to={`/category/${id}`} key={index} className={({isActive}) => `duration-300 ${isActive ? 'text-[#375bfa] scale-[1.25]' : 'text-[#37364d]'}`}>
                                     <TaskIcon char={title.charAt(0)} title={title} />
-                                </div>
+                                </NavLink>
                             )
                         })
                     )

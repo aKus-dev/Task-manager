@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export const HomeInfo = () => {
 
-    const { filter, isNotFound } = useCategories();
+    const { filter } = useCategories();
 
     return (
         <div className="text-center flex flex-col gap-8 w-full py-6">
@@ -17,7 +17,7 @@ export const HomeInfo = () => {
             <div className="flex flex-col max-w-[1000px] mx-auto gap-8 md:flex-row md:flex-wrap w-full">
 
                 {
-                    !isNotFound
+                    filter.length
                         ?
                         (
                             filter.map(({ id, title, desc }) => (
