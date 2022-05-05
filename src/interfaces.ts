@@ -12,6 +12,7 @@ export interface Task {
     desc: string;
     date: string;
     status: 'To do' | 'In progress' | 'Done';
+    comments?: string[];
 }
 
 export type theme = 'light' | 'dark';

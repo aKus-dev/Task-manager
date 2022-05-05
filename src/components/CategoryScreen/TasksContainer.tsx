@@ -16,7 +16,7 @@ export const TasksContainer = ({ children }: TasksContainerProps) => {
 
   return (
     <div className="w-full flex flex-col gap-6">
-         <h1 className="text-[30px] md:text-[40px] font-bold text-[#3a3a3a] uppercase text-center">{title}</h1>
+      <h1 className="text-[30px] md:text-[40px] font-bold text-[#3a3a3a] uppercase text-center">{title}</h1>
       <CategoryInfo />
 
       <div className="w-full flex gap-4 items-center md:justify-center max-w-[650px] mx-auto">
@@ -27,7 +27,7 @@ export const TasksContainer = ({ children }: TasksContainerProps) => {
         </Link>
       </div>
 
-      <div className="max-w-[650px] mx-auto w-full">
+      <div className="max-w-[650px] mx-auto w-full flex flex-col gap-4">
         {children}
       </div>
     </div>

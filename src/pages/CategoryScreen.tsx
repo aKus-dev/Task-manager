@@ -4,7 +4,7 @@ import { useCategories } from '../global';
 import { useEffect, useState } from 'react';
 import { Categories } from '../interfaces';
 import { NoTasks, TasksContainer, Task } from '../components';
-
+import { Reorder } from "framer-motion"
 
 //TODO Validar cuando no se encuentra una category
 
@@ -31,9 +31,9 @@ export const CategoryScreen = () => {
             : (
               <TasksContainer>
                 {
-                  category?.tasks.map(({ id }) => (
+                  category?.tasks.map(({ id, title }) => (
                     <div key={id}>
-                      <Task />
+                      <Task taskTitle={title} />
                     </div>
                   ))
                 }
