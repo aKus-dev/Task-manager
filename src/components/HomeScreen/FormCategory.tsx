@@ -1,7 +1,7 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useTag, useCategories } from '../../global';
 import { Link } from 'react-router-dom';
-import { TagsContainer, Tag, FormError } from './';
+import { TagsContainer, Tag, FormError } from '../';
 import { routes } from '../../routes';
 import { useState } from 'react';
 import uniqid from 'uniqid'

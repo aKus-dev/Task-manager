@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { HomeScreen, CreateCategoryScreen } from './home/pages';
-import { CategoryScreen, CreateTaskScreen } from './cateogry/pages';
+import { HomeScreen, CreateCategoryScreen, CategoryScreen, CreateTaskScreen  } from './pages';
 import { routes } from './routes';
 
 

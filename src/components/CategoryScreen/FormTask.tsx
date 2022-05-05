@@ -1,6 +1,6 @@
 import { useCategories } from '../../global/categoriesAtom';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { FormError } from '../../home/components';
+import { FormError } from '../../components';
 import { useState } from 'react';
 import uniqid from 'uniqid'
 

@@ -1,8 +1,8 @@
-import { Navbar } from '../../global/components';
+import { Navbar } from '../global/components';
 import { useParams } from 'react-router-dom';
-import { useCategories } from '../../global';
+import { useCategories } from '../global';
 import { useEffect, useState } from 'react';
-import { Categories } from '../../interfaces';
+import { Categories } from '../interfaces';
 import { NoTasks, TasksContainer, Task } from '../components';
 
 

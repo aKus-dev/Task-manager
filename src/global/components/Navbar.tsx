@@ -1,6 +1,6 @@
-import { Square, TaskIcon, AddNewCategory, Settings } from '../../home/components';
+import { Square, TaskIcon, AddNewCategory, Settings } from '../../components';
 import { useCategories } from '..';
-import { useNavbar } from '../../home/hooks';
+import { useNavbar } from '../../hooks';
 import { routes } from '../../routes';
 import { Link, NavLink } from 'react-router-dom';
 

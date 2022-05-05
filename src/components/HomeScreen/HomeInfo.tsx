@@ -1,4 +1,4 @@
-import { CategoryCard, FilterCategory } from './';
+import { CategoryCard, FilterCategory } from '../';
 import { useCategories } from '../../global';
 import { Link } from 'react-router-dom';
 
