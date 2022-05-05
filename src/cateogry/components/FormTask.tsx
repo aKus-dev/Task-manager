@@ -1,34 +1,35 @@
+import { useCategories } from '../../global/categoriesAtom';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { useTag, useCategories } from '../../global';
-import { Link } from 'react-router-dom';
-import { TagsContainer, Tag, FormError } from './';
-import { routes } from '../../routes';
+import { FormError } from '../../home/components';
 import { useState } from 'react';
 import uniqid from 'uniqid'
+
 
 export interface IFormData {
     title: string;
     desc: string;
 }
 
-export const FormCategory = () => {
+export const FormTask= () => {
 
-    const { tags } = useTag();
-    const { addCategory } = useCategories();
+    const { actualCategory, addTask } = useCategories();
     const [isSuccess, setIsSuccess] = useState(false);
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm<IFormData>();
     const onSubmit: SubmitHandler<IFormData> = ({ title, desc }) => {
-        addCategory({
-            id: uniqid(),
-            title,
-            desc,
-            tags: tags,
-            tasks: []
-        })
+        addTask(
+            actualCategory,
+            {
+                id: uniqid(),
+                title,
+                desc,
+                date: Date.now().toString(),
+                status: 'To do'
+            }
+        );
 
         //* Reset form fields
-        reset({title: '', desc: ''})
+        reset({ title: '', desc: '' })
 
         //* Success alert
         setIsSuccess(true);
@@ -47,7 +48,7 @@ export const FormCategory = () => {
             {
                 isSuccess && (
                     <div className="border-l-[4px] border-green-400 p-2 text-green-700 bg-green-100 text-center rounded-[5px]">
-                        Categoría creada exitosamente
+                        Tarea creada exitosamente
                     </div>
                 )
             }
@@ -78,20 +79,7 @@ export const FormCategory = () => {
                 {errors?.desc?.type === 'minLength' && <FormError>Debe tener mínimo 10 caracteres</FormError>}
             </div>
 
-            <div className="flex flex-col gap-4">
-                <label className="text-[#3757e2] font-bold">Tags</label>
-
-                <TagsContainer>
-                    <Tag isSuccess={isSuccess}>Trabajo</Tag>
-                    <Tag isSuccess={isSuccess}>Música</Tag>
-                    <Tag isSuccess={isSuccess}>Deportes</Tag>
-                    <Tag isSuccess={isSuccess}>Películas</Tag>
-                </TagsContainer>
-
-                <Link to={routes.TagsScreen} className="text-[#5e77e6] underline">Crear tags personalizados</Link>
-            </div>
-
-            <button className="outline-none text-center bg-gradient-to-r from-[#5e77e6] to-[#3757e2] text-white px-6 py-2 w-full rounded-[10px]">Crear categoría</button>
+            <button className="outline-none text-center bg-gradient-to-r from-[#5e77e6] to-[#3757e2] text-white px-6 py-2 w-full rounded-[10px]">Crear tarea</button>
         </form>
     )
 }

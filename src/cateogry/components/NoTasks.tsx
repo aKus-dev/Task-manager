@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
+import { routes } from '../../routes';
 
 interface NoTaskProps {
     title: string | undefined;
 }
+
+// TODO: Crear en routes.ts la ruta para crear una task
 
 export const NoTasks = ({title}: NoTaskProps) => {
     return (
@@ -13,7 +16,7 @@ export const NoTasks = ({title}: NoTaskProps) => {
             </div>
             <img className="h-[320px]" src="/img/tasks.svg" alt="Task" />
 
-            <Link to='' className="text-center bg-gradient-to-r from-[#5e77e6] to-[#3757e2] text-white px-6 py-2 max-w-[350px] w-full rounded-[10px]">Crear</Link>
+            <Link to={routes.CreateTaskScreen} className="text-center bg-gradient-to-r from-[#5e77e6] to-[#3757e2] text-white px-6 py-2 max-w-[350px] w-full rounded-[10px]">Crear</Link>
         </div>
     )
 }
