@@ -8,7 +8,7 @@ export const filterCategoriesAtom = atom<Categories[]>([])
 export const actualCategoryAtom = atom('');
 
 export const useCategories = () => {
-actualCategoryAtom
+    actualCategoryAtom
     const [categories, setCategories] = useAtom(categoriesAtom)
     const [filter, setFilter] = useAtom(filterCategoriesAtom);
     const [actualCategory, setActualCategory] = useAtom(actualCategoryAtom);
@@ -26,12 +26,12 @@ actualCategoryAtom
         return categories.find(c => c.id === id);
     }
 
-    const getCategoryTitle = (id: string) => {
-        const category = categories.find(c => c.id === id);
+    const getCategoryTitle = () => {
+        const category = categories.find(c => c.id === actualCategory);
         return category?.title;
     }
 
-    const setActualCategoryFunc = (id:string) => {
+    const setActualCategoryFunc = (id: string) => {
         setActualCategory(id);
     }
 
@@ -40,11 +40,23 @@ actualCategoryAtom
         category?.tasks.push(task)
 
         const newCategories = categories.map(c => {
-            if(c.id === category?.id) return category;
+            if (c.id === category?.id) return category;
             return c;
         })
 
         setCategories(newCategories)
+    }
+
+    const getTaskData = (idTask: string) => {
+        const category = categories.find(c => c.id == actualCategory);
+        return category?.tasks.find(t => t.id === idTask);
+    }
+
+
+
+    //TODO completarla
+    const deleteTask = () => {
+        const category = categories.find(c => c.id == actualCategory);
     }
 
     useEffect(
@@ -82,6 +94,8 @@ actualCategoryAtom
         setActualCategoryFunc,
         actualCategory,
         getCategoryTitle,
-        addTask
+        addTask,
+        deleteTask,
+        getTaskData
     }
 }

@@ -3,5 +3,6 @@ export const routes = {
     CreateCategoryScreen: '/create-category',
     CategoryScreen: '/category/:id',
     TagsScreen: '/tags',
-    CreateTaskScreen: '/create-task'
+    CreateTaskScreen: '/create-task',
+    TaskScreen: 'task/:id'
 }

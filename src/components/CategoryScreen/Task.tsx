@@ -1,11 +1,14 @@
 import { useCategories } from '../../global/categoriesAtom';
+import { Link } from 'react-router-dom';
+
 interface TaskProps {
   taskTitle: string;
+  id: string;
 }
 
-export const Task = ({ taskTitle }: TaskProps) => {
+export const Task = ({ taskTitle, id }: TaskProps) => {
 
-  const { actualCategory } = useCategories();
+  const { deleteTask } = useCategories();
 
   return (
     <article className="p-[15px] border border-[#d4d1d1] rounded-[8px] border-l-[6px] border-l-[#3757e2] flex justify-between items-center">
@@ -16,9 +19,9 @@ export const Task = ({ taskTitle }: TaskProps) => {
           <i className="fa-solid fa-xmark text-red-600"></i>
         </button>
         
-        <button className="text-[#3757e2] cursor-pointer">
+        <Link to={`/task/${id}`} className="text-[#3757e2] cursor-pointer">
           <i className="fa-solid fa-arrow-right"></i>
-        </button>
+        </Link>
       </div>
     </article>
   )

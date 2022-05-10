@@ -10,8 +10,8 @@ interface TasksContainerProps {
 
 export const TasksContainer = ({ children }: TasksContainerProps) => {
 
-  const { actualCategory, getCategoryTitle } = useCategories();
-  const title = getCategoryTitle(actualCategory);
+  const { getCategoryTitle } = useCategories();
+  const title = getCategoryTitle();
 
 
   return (

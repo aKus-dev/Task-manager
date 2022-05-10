@@ -33,7 +33,7 @@ export const CategoryScreen = () => {
                 {
                   category?.tasks.map(({ id, title }) => (
                     <div key={id}>
-                      <Task taskTitle={title} />
+                      <Task taskTitle={title} id={id} />
                     </div>
                   ))
                 }
