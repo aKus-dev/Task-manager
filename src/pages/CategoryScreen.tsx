@@ -40,7 +40,6 @@ export const CategoryScreen = () => {
               </TasksContainer>
             )
         }
-
       </main>
       <Navbar />
     </div>

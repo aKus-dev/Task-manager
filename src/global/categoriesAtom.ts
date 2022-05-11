@@ -57,19 +57,19 @@ export const useCategories = () => {
         const oldTasks = category!.tasks;
 
         const tasksUpdated: Task[] = oldTasks.map(t => {
-            if(t.id !== idTask) return t;
+            if (t.id !== idTask) return t;
 
             return {
                 ...t,
                 title,
-                desc, 
+                desc,
                 status
             }
         })
 
 
         const categoriesUpdated = categories.map(c => {
-            if(c.id !== actualCategory) return c;
+            if (c.id !== actualCategory) return c;
 
             return {
                 ...c,
@@ -79,6 +79,22 @@ export const useCategories = () => {
 
         setCategories(categoriesUpdated!)
 
+    }
+
+    const getTaskInfo = () => {
+        const category = categories.find(c => c.id === actualCategory);
+
+        const total = category?.tasks.length;
+        const toDo = category?.tasks.filter(t => t.status == 'To do').length;
+        const inProgress = category?.tasks.filter(t => t.status == 'In Progress').length;
+        const done = category?.tasks.filter(t => t.status == 'Done').length;
+
+        return { 
+            total: total?.toString(), 
+            toDo: toDo?.toString(), 
+            inProgress: inProgress?.toString(),
+            done: done?.toString()
+        }
     }
 
 
@@ -125,6 +141,7 @@ export const useCategories = () => {
         addTask,
         deleteTask,
         getTaskData,
-        updateTask
+        updateTask,
+        getTaskInfo
     }
 }

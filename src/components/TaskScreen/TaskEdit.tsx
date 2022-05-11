@@ -93,8 +93,7 @@ export const TaskEdit = () => {
                 <h2 className="text-[#313131] font-bold text-[25px]">Estado</h2>
 
                 <div className="flex gap-4">
-
-                    <label className={`${status === 'To do' ? 'status-active'  : 'status-no-active' } duration-300 font-semibold px-6 py-[5px] rounded-[50px] cursor-pointer`}>
+                    <label className={`${status === 'To do' ? 'status-active' : 'status-no-active'} duration-300 font-semibold px-6 py-[5px] rounded-[50px] cursor-pointer`}>
                         To do
                         <input
                             className="hidden"
@@ -105,7 +104,7 @@ export const TaskEdit = () => {
                         />
                     </label>
 
-                    <label className={`${status === 'In Progress' ? 'status-active'  : 'status-no-active' } duration-300 font-semibold px-6 py-[5px] rounded-[50px] cursor-pointer`}>
+                    <label className={`${status === 'In Progress' ? 'status-active' : 'status-no-active'} duration-300 font-semibold px-6 py-[5px] rounded-[50px] cursor-pointer`}>
                         In Progress
                         <input
                             className="hidden"
@@ -116,7 +115,7 @@ export const TaskEdit = () => {
                         />
                     </label>
 
-                    <label className={`${status === 'Done' ? 'status-active'  : 'status-no-active' } duration-300 font-semibold px-6 py-[5px] rounded-[50px] cursor-pointer`}>
+                    <label className={`${status === 'Done' ? 'status-active' : 'status-no-active'} duration-300 font-semibold px-6 py-[5px] rounded-[50px] cursor-pointer`}>
                         Done
                         <input
                             className="hidden"
@@ -126,47 +125,16 @@ export const TaskEdit = () => {
                             onClick={handleSelectStatus}
                         />
                     </label>
-
-                    {/* 
-                    <button
-                        className="font-semibold px-6 py-[5px] rounded-[50px] status-no-active"
-                        type="button"
-                        id="To do"
-                        onClick={handleSelectStatus}
-                    >
-                        To do
-                    </button>
-
-                    <button
-                        className="font-semibold px-6 py-[5px] rounded-[50px] status-no-active"
-                        type="button"
-                        id="In Progress"
-                        onClick={handleSelectStatus}
-                    >
-                        In Progress
-                    </button>
-
-                    <button
-                        className="font-semibold px-6 py-[5px] rounded-[50px] status-no-active"
-                        type="button"
-                        id="Done"
-                        onClick={handleSelectStatus}
-                    >
-                        Done
-                    </button> */}
                 </div>
             </div>
 
-
             <div className="flex flex-col gap-2">
                 <h2 className="text-[#313131] font-bold text-[25px]">Descripción</h2>
-
                 <textarea
                     className="resize-none p-4 rounded-[8px] border border-[#acacac] outline-none"
                     value={desc}
                     onChange={e => setDesc(e.target.value)}
                 >
-
                 </textarea>
             </div>
 
