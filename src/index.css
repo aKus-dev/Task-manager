@@ -12,3 +12,14 @@
     background-color: #3757e2;
     color: #dfe6f0;
 }
+
+.status-active {
+    border: 1px solid transparent;
+    background-color: #e7e982c5;
+    color: #27220e;
+}
+
+.status-no-active {
+    border: 1px solid #27220e;
+    color: #27220e;
+}

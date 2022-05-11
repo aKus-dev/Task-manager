@@ -1,33 +1,39 @@
-import { TaskContainer, TaskHeader, TaskData } from '../components';
+import { TaskContainer, TaskData, TaskEdit } from '../components';
+import { useCategories, editAtom } from '../global';
 import { useParams } from 'react-router-dom';
-import { useCategories } from '../global';
 import { useEffect, useState } from 'react';
-import { Task } from '../components/CategoryScreen/Task';
 import { Task as ITask } from '../interfaces';
+import { useAtom } from 'jotai';
 
 export const TaskScreen = () => {
+
   const { id } = useParams()
-  const { getTaskData } = useCategories()
+  const { getTaskData, categories } = useCategories()
 
   const [taskData, setTaskData] = useState<ITask>();
+  const [isEditable] = useAtom(editAtom);
 
   useEffect(
     () => {
       setTaskData(
         getTaskData(id!)
       )
-    }, [id]
+    }, [id, categories]
   )
+
 
   return (
     <TaskContainer>
-      <TaskHeader />
-      <TaskData
-        taskName={taskData?.title}
-        status={taskData?.status}
-        date={taskData?.date}
-        desc={taskData?.desc}
-      />
+      {
+        isEditable
+          ? <TaskEdit />
+          : (<TaskData
+            taskName={taskData?.title}
+            status={taskData?.status}
+            date={taskData?.date}
+            desc={taskData?.desc}
+          />)
+      }
     </TaskContainer>
   )
 }

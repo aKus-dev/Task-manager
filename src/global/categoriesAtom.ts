@@ -1,6 +1,6 @@
 import { useAtom, atom } from "jotai";
 import { atomWithStorage } from "jotai/utils";
-import { Categories, Task } from '../interfaces';
+import { Categories, StatusOptions, Task } from '../interfaces';
 import { ChangeEvent, useState, useEffect } from 'react';
 
 export const categoriesAtom = atomWithStorage('categories', [] as Categories[])
@@ -52,6 +52,34 @@ export const useCategories = () => {
         return category?.tasks.find(t => t.id === idTask);
     }
 
+    const updateTask = (idTask: string, title: string, status: StatusOptions, desc: string) => {
+        const category = categories.find(c => c.id === actualCategory);
+        const oldTasks = category!.tasks;
+
+        const tasksUpdated: Task[] = oldTasks.map(t => {
+            if(t.id !== idTask) return t;
+
+            return {
+                ...t,
+                title,
+                desc, 
+                status
+            }
+        })
+
+
+        const categoriesUpdated = categories.map(c => {
+            if(c.id !== actualCategory) return c;
+
+            return {
+                ...c,
+                tasks: tasksUpdated
+            }
+        })
+
+        setCategories(categoriesUpdated!)
+
+    }
 
 
     //TODO completarla
@@ -96,6 +124,7 @@ export const useCategories = () => {
         getCategoryTitle,
         addTask,
         deleteTask,
-        getTaskData
+        getTaskData,
+        updateTask
     }
 }

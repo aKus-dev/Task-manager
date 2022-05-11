@@ -21,3 +21,4 @@ export { CategoryInfo } from './CategoryScreen/CategoryInfo';
 export { TaskContainer } from './TaskScreen/TaskContainer';
 export { TaskHeader } from './TaskScreen/TaskHeader';
 export { TaskData } from './TaskScreen/TaskData';
+export { TaskEdit } from './TaskScreen/TaskEdit';
