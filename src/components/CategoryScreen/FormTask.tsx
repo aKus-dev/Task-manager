@@ -2,6 +2,7 @@ import { useCategories } from '../../global/categoriesAtom';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { FormError } from '../../components';
 import { useState } from 'react';
+import { DateTime } from "luxon";
 import uniqid from 'uniqid'
 
 
@@ -23,7 +24,7 @@ export const FormTask= () => {
                 id: uniqid(),
                 title,
                 desc,
-                date: Date.now().toString(),
+                date: DateTime.now().setLocale('fr').toLocaleString(),
                 status: 'To do'
             }
         );

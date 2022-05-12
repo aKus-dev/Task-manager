@@ -20,7 +20,7 @@ export const TasksContainer = ({ children }: TasksContainerProps) => {
       <CategoryInfo />
 
       <div className="w-full flex gap-4 items-center md:justify-center max-w-[650px] mx-auto">
-        <TaskInputSearch />
+        {/*     <TaskInputSearch /> */}
 
         <Link to={routes.CreateTaskScreen} className="flex items-center justify-center shrink-0 bg-gradient-to-r from-[#5e77e6] to-[#3757e2] rounded-[50%] w-[40px] h-[40px]">
           <i className="fa-solid fa-plus text-white"></i>

@@ -13,7 +13,6 @@ export const TaskData = ({ taskName, status, date, desc }: TaskDataProps) => {
 
     const { getCategoryTitle } = useCategories()
 
-   
     return (
         <>
             <TaskHeader />
