@@ -88,7 +88,7 @@ export const FormCategory = () => {
                     <Tag isSuccess={isSuccess}>Películas</Tag>
                 </TagsContainer>
 
-                <Link to={routes.TagsScreen} className="text-[#5e77e6] underline">Crear tags personalizados</Link>
+                {/* <Link to={routes.TagsScreen} className="text-[#5e77e6] underline">Crear tags personalizados</Link> */}
             </div>
 
             <button className="outline-none text-center bg-gradient-to-r from-[#5e77e6] to-[#3757e2] text-white px-6 py-2 w-full rounded-[10px]">Crear categoría</button>
