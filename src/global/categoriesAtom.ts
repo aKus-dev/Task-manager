@@ -97,10 +97,19 @@ export const useCategories = () => {
         }
     }
 
+    const deleteTask = (idTask: string) => {
+        const categoriesUpdated = categories.map(c => {
+            if(c.id !== actualCategory) return c;
 
-    //TODO completarla
-    const deleteTask = () => {
-        const category = categories.find(c => c.id == actualCategory);
+            const newTasks = c.tasks.filter(t => t.id !== idTask);
+
+            return {
+                ...c,
+                tasks: newTasks
+            }
+        })
+
+        setCategories(categoriesUpdated);
     }
 
     useEffect(

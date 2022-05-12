@@ -15,7 +15,8 @@ export const Task = ({ taskTitle, id }: TaskProps) => {
       <h1 className="flex-grow text-[18px]">{taskTitle}</h1>
 
       <div className="w-[60px] flex gap-4 text-[25px] ">
-        <button className="text-[#3757e2] cursor-pointer">
+
+        <button onClick={() => deleteTask(id)} className="text-[#3757e2] cursor-pointer">
           <i className="fa-solid fa-xmark text-red-600"></i>
         </button>
         

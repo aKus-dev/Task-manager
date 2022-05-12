@@ -12,14 +12,14 @@ export const CategoryScreen = () => {
 
   const [category, setCategory] = useState<Categories>();
   const { id } = useParams();
-  const { getCategoryByid, setActualCategoryFunc } = useCategories();
+  const { getCategoryByid, setActualCategoryFunc, categories } = useCategories();
 
   useEffect(
     () => {
       const category = getCategoryByid(id!);
       setCategory(category)
       setActualCategoryFunc(id!);
-    }, [id, category]
+    }, [id, category, categories]
   )
 
   return (
